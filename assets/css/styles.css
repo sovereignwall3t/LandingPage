@@ -7,8 +7,9 @@
 
   /*========== Colors ==========*/
   /*Color mode HSL(hue, saturation, lightness)*/
-  --first-color: hsl(38, 69%, 59%);
-  --text-color: hsl(38, 8%, 8%);
+  --first-color: #3EB489;
+  --text-color: hsl(0, 0%, 98%);
+  --text-color2: black;
 
   /*========== Font and typography ==========*/
   /*.5rem = 8px | 1rem = 16px ...*/
@@ -57,9 +58,13 @@ img {
 /*=============== REUSABLE CSS CLASSES ===============*/
 .container {
   max-width: 1024px;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
 }
+
 
 .main {
   overflow: hidden; /* For the animations ScrollReveal */
@@ -111,6 +116,9 @@ img {
   }
 }
 
+.single-testimonial-item:before {
+  left: 10px; /* Adjust icon position on smaller screens */
+}
 .nav__list {
   text-align: center;
   display: flex;
@@ -218,6 +226,166 @@ img {
     transform: scale(.85, .85);
   }
 }
+/*=============== Pricing ===============*/
+
+.pricing-table {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 20px;
+  color: black;
+}
+.pricing-card {
+  background: white;
+  border-radius: 10px;
+  --text-color2: black;
+  padding: 20px;
+  margin: 10px;
+  width: 300px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.pricing-card h2 {
+  text-align: center;
+  color: black;
+}
+.pricing-card ul {
+  list-style: none;
+  --text-color2: black;
+
+  padding: 0;
+}
+.pricing-card ul li {
+  border-bottom: 1px solid #eee;
+  --text-color2: black;
+  padding: 10px;
+  text-align: left;
+}
+.pricing-card button {
+  background: #007bff;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 2px;
+  cursor: pointer;
+  border-radius: 5px;
+  width: calc(100% - 20px);
+}
+.price {
+  text-align: center;
+  font-size: 2em;
+  padding: 20px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: var(--first-color);
+
+}
+
+h3 {
+  font-weight: 500;
+}
+
+.section-padding {
+  padding: 80px ;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-borders span {
+  height: 5px;
+  background: #6aaf08;
+  width: 40px;
+  display: inline-block;
+  border-radius: 2px;
+}
+
+.section-borders span.black-border {
+  background: #333;
+  width: 30px;
+  margin: 0 6px;
+
+}
+
+.client-testimonial-carousel .owl-dots button {
+  height: 5px;
+  background: #6aaf08;
+  width: 20px;
+  display: inline-block;
+  margin: 5px;
+  border-radius: 2px;
+}
+
+.client-testimonial-carousel button.owl-dot.active {
+  background: #000 !important;
+  width: 30px;
+}
+
+.client-testimonial-carousel .owl-dots {
+  
+  text-align: center;
+  margin-top: 25px
+}
+
+.single-testimonial-item {
+  position: relative;
+  box-shadow: 0 0 2px #dadfd3;
+  margin: 2px auto; /* Center the testimonial items */
+  padding: 15px;
+  font-style: italic;
+  font-size: 12px;
+  padding-left: 65px; /* Provide space for the quote icon */
+  max-width: 600px; /* Set a max-width for better control on larger screens */
+  width: 100%; /* Ensure it scales down on smaller devices */
+}
+
+.single-testimonial-item:before {
+  font-family: "Font Awesome 5 Free";
+  content: "\f10e";
+  font-weight: 900;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  font-size: 12px;
+  color: #6aaf08;
+  transform: translateY(-50%); /* Center vertically */
+}
+.single-testimonial-item:after {
+  background: #ddd;
+  content: "";
+  height: 70%;
+  left: 50px;
+  position: absolute;
+  top: 10%;
+  width: 1px;
+}
+
+.single-testimonial-item h3 {
+  font-size: 15px;
+  font-style: normal;
+  margin-bottom: 0;
+}
+
+.single-testimonial-item h3 span {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  margin-top: 5px;
+}
+
+
 
 /*=============== BREAKPOINTS ===============*/
 /* For small devices */
@@ -227,8 +395,9 @@ img {
   }
 }
 
+
 /* For medium devices */
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 367px) {
   .nav {
     height: calc(var(--header-height) + 1.5rem);
   }
@@ -239,6 +408,11 @@ img {
   .nav__list {
     flex-direction: row;
     column-gap: 3.5rem;
+  }
+}
+@media screen and (max-width: 480px) {
+  .single-testimonial-item {
+    padding-left: 55px; /* Further adjust for very small screens */
   }
 }
 
@@ -285,4 +459,18 @@ img {
   body {
     zoom: 3.1;
   }
+}
+
+.footer {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #3EB489; /* Light grey background */
+  color: #333; /* Dark text color */
+}
+
+.footer img {
+  width: 20px; /* Adjust based on your preference */
+  height: auto;
 }
